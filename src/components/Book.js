@@ -35,6 +35,9 @@ function Book (props) {
           })
     }
 
+    useEffect(() => {
+        props.getBooks();
+    }, []);
 
     return (
         <div>

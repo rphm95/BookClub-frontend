@@ -7,12 +7,14 @@ import { MDBContainer, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Navigate, useNavigate } from "react-router-dom";
 
-function Home() {
+function Home(props) {
 
     const navigate = useNavigate();
 
-    const getBooks = () => {
+    const getBookss = () => {
+        props.getBooks()
         navigate("/books")
+
     }
 
     return (
@@ -24,7 +26,7 @@ function Home() {
             <div className="home-content">
                 <h2>EXPANDING HORIZONS</h2>
                 <h2>THROUGH BOOKS</h2>
-                <Button variant="light" onClick={getBooks}>Learn More <MDBIcon icon="search" /></Button>
+                <Button variant="light" onClick={getBookss}>Learn More <MDBIcon icon="search" /></Button>
             </div>
 
             <Card id='footer'>

@@ -42,9 +42,11 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      {/* <div className="App"> */}
         <Routes>
-          <Route path="/books/add" element={<><Header getBooks={getBooks} /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}></Route>
+          <Route path="/" element={<Home getBooks={getBooks}/>}/>
+
+          <Route path="/books/add" element={<><Header getBooks={getBooks} /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}/>
           
           <Route path="/books" element={<><Header getBooks={getBooks} /> 
             <Container fluid>
@@ -54,12 +56,10 @@ function App() {
               })}
               </Row>
             </Container>
-            <Footer /></>}>
-          </Route>
+            <Footer /></>}/>
           
-          <Route path="/" element={<Home/>}></Route>
         </Routes>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }

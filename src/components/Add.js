@@ -23,6 +23,10 @@ function Add(props){
         navigate("/books")
     }
 
+    useEffect(() => {
+        props.getBooks();
+    }, []);
+
     return (
         <div>
             <h1>Let us know your suggestion:</h1>

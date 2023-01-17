@@ -44,9 +44,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/books/add" element={<><Header /> <Add handleCreate={handleCreate}/></>}></Route>
+          <Route path="/books/add" element={<><Header /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}></Route>
           
-          {/* <Route path="/books/details" element={<><Header /> <BookDetail key={books.id} book={books}/> <Footer /></>}></Route> */}
           <Route path="/books" element={<><Header /> 
             <Container fluid>
               <Row xs={2} md={3} className="g-4">

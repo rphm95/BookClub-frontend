@@ -33,6 +33,10 @@ function Header(props){
         navigate("/books/add")
     }
 
+    useEffect(() => {
+        props.getBooks();
+    }, []);
+
     return (
         <div>
             <Navbar id="navbar">

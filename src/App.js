@@ -44,9 +44,9 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/books/add" element={<><Header /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}></Route>
+          <Route path="/books/add" element={<><Header getBooks={getBooks} /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}></Route>
           
-          <Route path="/books" element={<><Header /> 
+          <Route path="/books" element={<><Header getBooks={getBooks} /> 
             <Container fluid>
               <Row xs={2} md={3} className="g-4">
               {books.map((book) => {

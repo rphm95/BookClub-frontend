@@ -16,7 +16,7 @@ function App() {
 
   const handleCreate = (addBook) =>{
     axios 
-      .post("http://localhost:8080/books", addBook)
+      .post("https://bookclub1.herokuapp.com/books", addBook)
       .then((response) =>{
         console.log(response)
         getBooks()
@@ -24,14 +24,14 @@ function App() {
   }
   const handleUpdate = (editBook) => {
     axios 
-      .put("http://localhost:8080/books/" + editBook.id, editBook)
+      .put("https://bookclub1.herokuapp.com/books/" + editBook.id, editBook)
       .then((response) => {
         getBooks()
       })
   }
   const getBooks = () => {
     axios
-      .get("http://localhost:8080/books")
+      .get("https://bookclub1.herokuapp.com/books")
       .then((response) => setBooks(response.data), 
       (err) => console.log(err))
   };

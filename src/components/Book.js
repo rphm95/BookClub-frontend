@@ -29,7 +29,7 @@ function Book (props) {
 
     const handleDelete = (event) =>{
         axios 
-          .delete("http://localhost:8080/books/" + event.target.value) 
+          .delete("https://bookclub1.herokuapp.com/books/" + event.target.value) 
           .then((response) =>{
             props.getBooks()
           })

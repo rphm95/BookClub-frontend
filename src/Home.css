@@ -4,7 +4,9 @@
 
 body{
     background-image: url(/Users/rafaelabootcamp/dev/project5/bookclub-frontend/src/stuff/SeaofClouds-10s-1126px.svg);
+    background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 .carousel{
     margin-top: 2.5rem;

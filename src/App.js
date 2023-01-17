@@ -1,24 +1,67 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import Home from './components/Home.js';
+import Header from './components/Header.js';
+import Book from './components/Book.js';
+import Footer from './components/Footer.js';
+import Add from './components/Add.js';
+import BookDetail from './components/BookDetail'; 
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
+  const [books, setBooks] = useState([]);
+
+  const handleCreate = (addBook) =>{
+    axios 
+      .post("http://localhost:8080/books", addBook)
+      .then((response) =>{
+        console.log(response)
+        getBooks()
+      })
+  }
+  const handleUpdate = (editBook) => {
+    axios 
+      .put("http://localhost:8080/books/" + editBook.id, editBook)
+      .then((response) => {
+        getBooks()
+      })
+  }
+  const getBooks = () => {
+    axios
+      .get("http://localhost:8080/books")
+      .then((response) => setBooks(response.data), 
+      (err) => console.log(err))
+  };
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/books/add" element={<><Header /> <Add handleCreate={handleCreate}/></>}></Route>
+          
+          {/* <Route path="/books/details" element={<><Header /> <BookDetail key={books.id} book={books}/> <Footer /></>}></Route> */}
+          <Route path="/books" element={<><Header /> 
+            <Container fluid>
+              <Row xs={2} md={3} className="g-4">
+              {books.map((book) => {
+                return <Book key={book.id} book={book} getBooks={getBooks} handleUpdate={handleUpdate}/> 
+              })}
+              </Row>
+            </Container>
+            <Footer /></>}>
+          </Route>
+          
+          <Route path="/" element={<Home/>}></Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

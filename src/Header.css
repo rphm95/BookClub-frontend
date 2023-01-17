@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+#disabled{
+    color: rgba(64, 63, 63, 0.593);
+}
+
+h4{
+    font-family: 'Rubik Mono One', sans-serif;
+    color: rgb(222, 243, 224);
+    text-shadow: 2px 1px rgb(10, 10, 9);
+    letter-spacing: 2px;
+}
+
+#navbar{
+    border-bottom: 1px rgba(240, 237, 237, 0.324) solid;
+}

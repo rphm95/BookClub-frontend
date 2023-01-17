@@ -1,0 +1,32 @@
+.container-fluid{
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+#try{
+    color: rgb(249, 12, 12);
+}
+
+#card-book{
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+#can-icon{
+    display: flex;
+    flex: 1;
+    /* margin-left: 11rem; */
+}
+
+#can-icon:hover{
+    background-color: rgb(15, 15, 15);
+}
+
+@media only screen and (max-width: 600px) {
+    #card-book{
+        width: 11rem !important;
+
+    }
+}

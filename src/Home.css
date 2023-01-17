@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+
+body{
+    background-image: url(/Users/rafaelabootcamp/dev/project5/bookclub-frontend/src/stuff/SeaofClouds-10s-1126px.svg);
+    background-repeat: no-repeat;
+}
+.carousel{
+    margin-top: 2.5rem;
+}
+
+h2{
+    color: rgb(19, 16, 123);
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: bold;
+    letter-spacing: 3px;
+    word-spacing: 2px;
+    text-shadow: 2px 1px rgb(255, 255, 255);
+}
+
+h4{
+    font-family: 'Rubik Mono One', sans-serif;
+    color: rgb(222, 243, 224);
+    text-shadow: 2px 1px rgb(70, 104, 38);
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+.navbar{
+    /* background-color: rgb(250, 243, 243); */
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.home-content{
+    margin-top: 7rem;
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#footer {
+    background-color: rgba(255, 255, 255, 0.242);
+    /* border-top:2px solid red; */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    /* color: white; */
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn{
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-content{
+        margin-top: 60%;
+    }
+
+    h2{
+        font-size: 1.4rem;
+    }
+
+    .btn{
+        font-size: 1.5rem;
+    }
+}

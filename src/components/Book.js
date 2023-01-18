@@ -46,12 +46,12 @@ function Book (props) {
                     <Card.ImgOverlay>
                         <IconButton id="can-icon" onClick={handleShow} color='error'><DeleteIcon fontSize='large' id="try"/></IconButton>
                     </Card.ImgOverlay>
-                    <Card.Img variant="top" src={props.book.image} />
+                    <Card.Img variant="top" src={props.book?.image} />
                     <Card.Body>
-                        <Card.Title>{props.book.title}</Card.Title>
+                        <Card.Title>{props.book?.title}</Card.Title>
                         <Card.Text>
-                        <b>Author: </b>{props.book.author}<br/>
-                        <b>Published: </b>{props.book.published}
+                        <b>Author: </b>{props.book?.author}<br/>
+                        <b>Published: </b>{props.book?.published}
                         </Card.Text>
                         <IconButton onClick={() => setLgShow(true)}><ReadMoreIcon/></IconButton>
                         {/* <Button variant="primary">Go somewhere</Button> */}
@@ -65,14 +65,14 @@ function Book (props) {
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>
-                    Are you sure you want to delete <i>{props.book.title}</i> book?
+                    Are you sure you want to delete <i>{props.book?.title}</i> book?
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                     Cancel
                     </Button>
-                    <Button variant="danger" onClick={handleDelete} value={props.book.id} >
+                    <Button variant="danger" onClick={handleDelete} value={props.book?.id} >
                     Delete
                     </Button>
                 </Modal.Footer>
@@ -87,10 +87,10 @@ function Book (props) {
             >
                 <Modal.Header closeButton>
                 <Modal.Title id="example-modal-sizes-title-lg">
-                    {props.book.title}
+                    {props.book?.title}
                 </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{props.book.description}</Modal.Body>
+                <Modal.Body>{props.book?.description}</Modal.Body>
             </Modal>
 
             <Edit handleClose2={handleClose2} show={show} book={props.book} handleUpdate={props.handleUpdate}/>

@@ -46,8 +46,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home getBooks={getBooks}/>}/>
 
-          <Route path="/books/add" element={<><Header getBooks={getBooks} /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}/>
-          
           <Route path="/books" element={<><Header getBooks={getBooks} /> 
             <Container fluid>
               <Row xs={2} md={3} className="g-4">
@@ -56,7 +54,12 @@ function App() {
               })}
               </Row>
             </Container>
-            <Footer /></>}/>
+            <Footer /></>}
+          />
+
+          <Route path="/books/add" element={<><Header getBooks={getBooks} /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}/>
+          
+         
           
         </Routes>
       {/* </div> */}

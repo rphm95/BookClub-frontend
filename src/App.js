@@ -16,40 +16,34 @@ function App() {
   const [books, setBooks] = useState([]);
 
   //  SEARCH BAR
-  const [searchInput, setSearchInput] = useState("");
-  // const [filteredBooks, setFilteredBooks] = useState([])
-  // const [isSearching, setIsSearching] = useState(false);
+  // const [searchInput, setSearchInput] = useState("");
+  const [filteredBooks, setFilteredBooks] = useState([])
+  const [isSearching, setIsSearching] = useState(false);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
+  const handleChange = (event) => {
+    event.preventDefault();
+    // setSearchInput(e.target.value);
+    onSearchChange(event.target.value)
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (searchInput.length > 0) {
-      setBooks(books.filter((book) => { return book.title.toLowerCase().match(searchInput)}))
-    } else if (searchInput.length === 0) { 
-      return getBooks(); 
+  const onSearchChange = (sInput) => {
+    if(sInput.length > 0){
+      setIsSearching(true)  
+      setFilteredBooks(books.filter((param) => {
+        return param.title.toLowerCase().match(sInput.toLowerCase()) || param.author.toLowerCase().match(sInput.toLowerCase())
+    }))}else{
+      setIsSearching(false)
     }
   }
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   setSearchInput(e.target.value)
-  //   onSearchChange(e.target.value)
-  // }
+  const booksToDisplay = isSearching ? filteredBooks : books
 
-  // const onSearchChange = (searchInput) => {
-  //   const searchInputLower = searchInput.toLowerCase()
-  //   if (searchInput.length > 0){
-  //     setIsSearching(true)
-  //     const result = books.filter((book) => {
-  //       return book.title.toLowerCase().match(searchInputLower)
-  //     })
-  //     setFilteredBooks(result)
-  //   } else {
-  //     setIsSearching(false)
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (searchInput.length > 0) {
+  //     setBooks(books.filter((book) => { return book.title.toLowerCase().match(searchInput)}))
+  //   } else if (searchInput.length === 0) { 
+  //     return getBooks(); 
   //   }
   // }
 
@@ -61,6 +55,7 @@ function App() {
         getBooks()
       })
   }
+
   const handleUpdate = (editBook) => {
     axios 
       .put("https://bookclub1.herokuapp.com/books/" + editBook.id, editBook)
@@ -68,6 +63,7 @@ function App() {
         getBooks()
       })
   }
+
   const getBooks = () => {
     axios
       .get("https://bookclub1.herokuapp.com/books")
@@ -81,8 +77,8 @@ function App() {
 
   return (
     <Router>
-
         <Routes>
+
           <Route path="/" element={<Home getBooks={getBooks}/>}/>
 
           <Route path="/books" element={<>
@@ -90,8 +86,9 @@ function App() {
             <Header getBooks={getBooks} /> 
             
             <div className="search-container">
-              <form className="search-form" onSubmit={handleSubmit}>
-                <input className="search-input" type="text" placeholder="Search title here" onChange={handleChange} value={searchInput}/>
+            {/* onSubmit={handleSubmit} */}
+              <form className="search-form">
+                <input className="search-input" type="text" placeholder="Search title here" onChange={handleChange}/>
                 <button type="submit" className="search-button"><SearchIcon /></button>
               </form>
             </div>
@@ -99,9 +96,21 @@ function App() {
             
             <Container fluid>
               <Row xs={2} sm={2} md={3} className="g-4">
-              {books.map((book) => {
-                return <Book key={book.id} book={book} getBooks={getBooks} handleUpdate={handleUpdate}/> 
-              })}
+
+              {booksToDisplay.length > 0 ?
+                <>
+                {booksToDisplay.map((book) => {
+                  return <Book key={book.id} book={book} getBooks={getBooks} handleUpdate={handleUpdate}/> 
+                })}
+                </>
+                :
+                <>
+                  <div className="nobooks">
+                    <h2>No books found</h2>
+                  </div>
+                </>
+              }
+
               </Row>
             </Container>
 
@@ -110,12 +119,14 @@ function App() {
 
           <Route path="/books/add" element={<><Header getBooks={getBooks} /> <Add handleCreate={handleCreate} getBooks={getBooks}/></>}/>
           
-         
-          
         </Routes>
- 
     </Router>
   );
 }
 
 export default App;
+
+
+// {books.map((book) => {
+//   return <Book key={book.id} book={book} getBooks={getBooks} handleUpdate={handleUpdate}/> 
+// })}

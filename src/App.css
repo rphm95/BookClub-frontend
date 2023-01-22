@@ -45,8 +45,23 @@
       /* border: 0.5px solid #40c39a; */
 }
 
+.nobooks{
+      display: flex;
+      margin-bottom: 9rem;
+      margin-left: 5rem;
+
+}
+
+.nobooks h2{
+      margin-top: 9rem;
+      text-align: center;
+}
 @media only screen and (max-width: 600px) {
       .search-container{
             height: 80px;
+      }
+
+      .nobooks{
+            margin-bottom: 300px;
       }
 }

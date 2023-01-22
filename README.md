@@ -1,4 +1,4 @@
-# BookClub App FrontEnd -
+# BookClub App -
 Developer: Rafaela Hollanda
 ____
 
@@ -16,12 +16,12 @@ With this app the user is able to either get ideas for books, or use the platfor
 
 <!-- ## Difficulties:
 <!-- ### bugs:
--  --> -->
+-  --> 
 
 ## What I would have liked to add:
 - In the future I would like to refacture the possibility of adding an user login, so the books displayed can be specific for each user.
 
-## Project frontnd deployed on Netlify:
+## Project deployed on Netlify:
 `https://velvety-kelpie-5e2788.netlify.app/`
 ___________________________________
 

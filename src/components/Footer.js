@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-// import "bootstrap/dist/css/bootstrap.min.css";
 import {
     MDBFooter,
     MDBContainer,
@@ -7,9 +6,9 @@ import {
     MDBRow,
     MDBIcon,
     MDBBtn
-  } from 'mdb-react-ui-kit';
-import Button from 'react-bootstrap/Button';
-import { Navigate, useNavigate } from "react-router-dom";
+} from 'mdb-react-ui-kit';
+
+
 
 function Footer(){
     return (

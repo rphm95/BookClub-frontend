@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from 'react-bootstrap/Button';
 import '../Home.css';
@@ -30,7 +30,7 @@ function Home(props) {
             </div>
 
             <Card id='footer'>
-                {/* <Card.Header>Featured</Card.Header> */}
+                <Card.Header></Card.Header>
                 <Card.Body>
                     {/* <Card.Title>Special title treatment</Card.Title> */}
                     <MDBContainer className='p-4 pb-0'>

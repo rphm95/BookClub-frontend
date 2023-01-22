@@ -13,9 +13,12 @@ import Edit from "./Edit.js";
 import '../Book.css';
 
 
+
 function Book (props) {
-    const [showModal, setShowModal] = useState(false);
+
     // MODAL
+    const [showModal, setShowModal] = useState(false);
+
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
 
@@ -54,7 +57,6 @@ function Book (props) {
                         <b>Published: </b>{props.book?.published}
                         </Card.Text>
                         <IconButton onClick={() => setLgShow(true)}><ReadMoreIcon/></IconButton>
-                        {/* <Button variant="primary">Go somewhere</Button> */}
                         <IconButton onClick={handleShow2}><EditIcon /></IconButton>
                         
                     </Card.Body>
